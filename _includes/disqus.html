@@ -1,15 +1,27 @@
 {% if site.disqus %}
 <div class="comments">
 	<div id="disqus_thread"></div>
+
+	<div id="disqus_placeholder">
+		<a id="load_disqus">Load Disqus comments</a>.<br>
+		By clicking you agree to the <a href="https://help.disqus.com/terms-and-policies/disqus-privacy-policy">Disqus Privacy Policy</a>.
+	</div>
+
 	<script type="text/javascript">
 
-	    var disqus_shortname = '{{ site.disqus }}';
+		var disqus_placeholder = document.getElementById("disqus_placeholder");
+		var load_disqus = document.getElementById("load_disqus");
+		load_disqus.onclick = function () {
+			disqus_placeholder.parentNode.removeChild(disqus_placeholder);
 
-	    (function() {
-	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	    })();
+			var disqus_shortname = '{{ site.disqus }}';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		};
 
 	</script>
 	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

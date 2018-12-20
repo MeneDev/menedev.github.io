@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Use Amazon Echo as Bluetooth Speaker / Audio sink in Ubuntu/Kubuntu 18.10
+title: Amazon Echo as Bluetooth Speaker / Audio sink in Ubuntu/Kubuntu 18.10
 ---
 
 I have tried several times to use my Amazon Echo as a Speaker for my Home Office Setup. After all it's why I got it in the first place. However by default it would only connect as audio source which means I now get to hear Alexa's voice through my Laptop's speakers. Googling only gave me a few frustrated users and bug-reports. Here's what works for me:
