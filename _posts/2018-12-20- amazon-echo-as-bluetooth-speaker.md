@@ -13,23 +13,38 @@ Just to make sure we start from fresh.
 
 ## Connect from the Linux Machine
 
-In my cargo cult it's important to connect from the Linux-Machine. Go to the Alexa App and start connecting to a new device. Then from your Linux-Machine connect to your Echo. It seems your device has to be visible to do this. I had no luck using `bluetoothctl` so I used the wizard.
+I could present some semi-solid theory why it is the case, but let's just cargo cult this: it's important to **connect from the Linux-Machine**.
+
+1. Go to the Alexa App and start connecting to a new device.
+2. From your Linux-Machine connect to your Echo. It seems your device has to be visible to do this. It may also fail a few times, just be stubborn and retry.
+
+I had no luck using `bluetoothctl` so I used the wizard.
 
 ## Change profile to a2dp_sink
 
 Open a terminal and enter `pactl list cards short`. You should see something similar to
-
-    0       alsa_card.pci-0000_00_1f.3      module-alsa-card.c
-    3       bluez_card.AA_BB_CC_DD_EE_FF    module-bluez5-device.c
+```
+0       alsa_card.pci-0000_00_1f.3      module-alsa-card.c
+3       bluez_card.AA_BB_CC_DD_EE_FF    module-bluez5-device.c
+```
 
 Look for the card starting with `bluez_card`.
 
 Now we need to change the active profile of our card:
 
-    pactl set-card-profile bluez_card.AA_BB_CC_DD_EE_FF a2dp_sink
+```
+pactl set-card-profile bluez_card.AA_BB_CC_DD_EE_FF a2dp_sink
+```
 
 Afterwards I had to change the default sink back to my internal speakers and then to the Echo again.
 
+## It works
+
+:tada:
+
+
 ## The catch
 
-While survives a re-connect, you'll have to do this after each reboot  ¯\\\_(ツ)\_/¯
+While this survives a re-connect, you'll have to do this after each reboot  ¯\\\_(ツ)\_/¯
+
+Maybe I'll try to automate that some day...
