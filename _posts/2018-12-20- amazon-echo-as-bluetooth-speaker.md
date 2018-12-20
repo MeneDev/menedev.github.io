@@ -38,12 +38,10 @@ pactl set-card-profile bluez_card.AA_BB_CC_DD_EE_FF a2dp_sink
 
 Afterwards I had to change the default sink back to my internal speakers and then to the Echo again.
 
-## It works
 
-:tada:
+## It works, but...
 
-
-## The catch
+Enjoy your music!
 
 While this survives a re-connect, you'll have to do this after each reboot  ¯\\\_(ツ)\_/¯
 
