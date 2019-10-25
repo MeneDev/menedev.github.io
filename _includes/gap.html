@@ -1,0 +1,20 @@
+{% if site.gap %}
+<script>
+function toForm(obj) {
+	var str = [];
+	for(var p in obj)
+	str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+	return str.join("&");
+}
+
+function report() {
+	var xhr = new XMLHttpRequest(); var url = 'https://gap.mene.dev/api/gap.go';
+	xhr.open('POST', url);
+	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	var data = toForm({v: 1, dp: window.location.href});
+	xhr.send(data);
+}
+
+window.addEventListener('DOMContentLoaded', report);
+</script>
+{% endif %}
